@@ -1,12 +1,12 @@
 #include "Rect.h"
 #include <stdio.h>
 
-float rect_area(struct shape* self)
+float rect_area(void* self)
 {
     printf("rect area\n");
     return 0;
 }
-float round_area(struct shape* self)
+float round_area(void* self)
 {
     printf("round area\n");
     return 0;
@@ -31,7 +31,10 @@ float shape_area(void* self)
 
 int main()
 {
-    struct Rect* r=Rect_creat(5,5,10,10);
-    pool_register(1,&rect_model)
+    pool_register(1,&rect_model);
+    pool_register(2,&round_model);
+    struct Rect* r=Rect_creat(5,5,10,10,1);
+    
+    r->base.vptr->area(r);
 
 }
