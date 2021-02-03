@@ -6,5 +6,6 @@ struct Rect{
     int width;
     int height;
 };
-struct Rect* Rect_creat(int x,int y,int width,int height,int type);
+struct Rect* Rect_creat(int x,int y,int width,int height);
+float rect_area(void* self);
 #endif

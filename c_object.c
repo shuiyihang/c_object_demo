@@ -1,13 +1,6 @@
-#include "malloc.h"
 #include "c_object.h"
 
-
-
-struct shape_poll{
-    int shape_type;
-    struct shape_vtbl* module;
-}pool[MAX_POOL];
-
+struct shape_poll pool[MAX_POOL];
 
 int pool_register(int type,struct shape_vtbl* module)
 {
@@ -25,6 +18,10 @@ int pool_register(int type,struct shape_vtbl* module)
         return -1;
     return 0;
 }
+void pool_init()
+{
+    memset(pool,0,sizeof(pool[MAX_POOL]));
+}
 struct shape* shape_creat(int x,int y)
 {
     struct shape* s=malloc(sizeof(struct shape));
@@ -32,11 +29,6 @@ struct shape* shape_creat(int x,int y)
     s->y=y;
     
     return s;
-}
-void shape_move(struct shape* self,int dx,int dy)
-{
-    self->x+=dx;
-    self->y+=dy;
 }
 int shape_init(struct shape* self,int x,int y,int type)
 {
