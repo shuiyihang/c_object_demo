@@ -8,8 +8,6 @@ struct shape_poll{
     struct shape_vtbl* module;
 };
 
-struct shape;
-
 struct shape_vtbl
 {
     float (*area)(void* self);

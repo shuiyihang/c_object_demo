@@ -13,4 +13,5 @@ int main()
 
     free(rect);
     free(round);
+    return 0;
 }
